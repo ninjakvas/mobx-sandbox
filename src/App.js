@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useStore } from './store/store';
+import { observer } from 'mobx-react-lite';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = observer(() => {
+    const store = useStore();
+    // get userStore
+    const { userStore } = store;
+
+    const handleChange = (e) => {
+        userStore.changeUsername(e.target.value);
+    };
+
+    return (
+        <>
+            <b>Username</b>
+            <div>{userStore.user.username}</div>
+            <input type="text" onChange={handleChange}/>
+            <br/>
+            <br/>
+            <b>Full name</b>
+            <div>{userStore.fullName}</div>
+        </>
+    );
+});
 
 export default App;
