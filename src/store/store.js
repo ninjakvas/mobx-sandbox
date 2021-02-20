@@ -12,6 +12,7 @@ export default class Store {
 /* Store helpers */
 const StoreContext = createContext();
 
+// custom wrapper to inject our store
 export const StoreProvider = ({ children, store }) => {
     return (
         <StoreContext.Provider value={store}>{children}</StoreContext.Provider>

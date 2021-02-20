@@ -1,6 +1,7 @@
 import { useStore } from './store/store';
 import { observer } from 'mobx-react-lite';
 
+// wrap our component with observer
 const App = observer(() => {
     const store = useStore();
     // get userStore
