@@ -6,6 +6,7 @@ export default class Store {
 
     constructor() {
         this.userStore = new UserStore(this);
+        // other sub stores...
     }
 }
 
